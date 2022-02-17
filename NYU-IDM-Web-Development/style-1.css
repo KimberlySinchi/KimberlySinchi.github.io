@@ -1,0 +1,93 @@
+/*
+ * TODO: IMAGES TO THE RIGHT OF H1
+ */
+
+/* HTML Architecture */
+body{
+    background-color: #e0cefd;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+header{
+    padding: 4vh;
+    padding-left: 2vw;
+
+    text-align: center;
+    background-color: #883bd5;
+}
+
+footer{
+    text-align: center;
+}
+
+/* Text & Img Styling */
+h1{
+    color: #fff;
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 90px;
+    white-space: nowrap;
+
+    /* text shadow generator: https://html-css-js.com/css/generator/text-shadow/ */
+    text-shadow: #d595ff 0px 0px 20px, #d595ff 0px 0px 30px, #d595ff 0px 0px 40px, #d595ff 0px 0px 50px, #d595ff 0px 0px 75px;
+    animation: slideInFromRight 2s;
+}
+
+h3{
+    padding: 1vw;
+    color: #a354f3;
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 40px;
+    text-align: left;
+    /* text shadow generator: https://html-css-js.com/css/generator/text-shadow/ */
+    text-shadow: 4px 3px 0px #a8a8a8;
+}
+
+p{
+    margin-left: 1vw;
+    font-family: 'Pangolin', cursive;
+}
+
+img{
+    padding-bottom: 4vw;
+}
+
+/* Class Styling */
+.weekly-schedule{
+    text-align: left;
+}
+
+/* ID Styling */
+#subtitle{
+    color: #fff;
+    white-space: nowrap;
+
+    animation: slideInFromRight 2s;
+}
+
+#gradient-transition{
+    /* gradient generator: https://cssgradient.io */
+    padding: 8vw;
+    background-color: red;
+    background: rgb(136,59,213);
+    background: linear-gradient(180deg, rgba(136,59,213,1) 0%, rgba(173,122,255,1) 53%, rgba(224,206,253,1) 100%);
+
+    color: #fff;
+    text-align: center;
+    font-size: 80px;
+    text-shadow: #d595ff 0px 0px 20px, #d595ff 0px 0px 30px, #d595ff 0px 0px 40px, #d595ff 0px 0px 50px, #d595ff 0px 0px 75px;
+}
+
+/* Animations */
+@keyframes slideInFromRight {
+    0%{
+        margin-left: 100%;
+        opacity: 0;
+        
+    }
+    100%{
+        margin-left: 0%;
+        opacity: 1;
+    }
+}
