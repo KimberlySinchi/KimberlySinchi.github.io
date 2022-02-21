@@ -2,67 +2,194 @@ body{
     background-color: #a4161a;
 }
 
+#brain{
+    position: absolute;
+
+    bottom: 35vh;
+    right: 5vw;
+
+    transform: scale(0.3);
+
+    z-index: 2;
+}
+
+#brain:hover{
+    opacity: 0%;
+}
+
+#secret{
+    position: absolute;
+
+    top: 13vh;
+    right: 24vw;
+
+    transform: scale(0.7);
+}
+
+
+
 #eyes{
-    text-align: center;
+    /* Allows child containers to be absolutely positioned to this parent
+     * W/o this then the child will default back to the last postition relative
+     * which, w/ every element defaulting to static positioning, would be the html element
+     * Relatively positioned elements can have absolutely positioned elements inside it
+     * Basically any other position besides static can allow you to have absolute positions
+     * inside it
+     */
+    position: relative;
+    height: 100vh;
 }
 
 #left-eye{
-    background-color: #fff;
-
     height: 400px;
     width: 400px;
-    margin-top: 5vh;
-    margin-left: 8vw;
-    padding: 0px;
+
+    background-color: #fff;
+
+    position: absolute;
+    top: 4vh;
+    left: 5vw;
+
     border: 5px solid #79171a;
     border-radius: 200px;
-
-    position: relative;
-    float: left;
 }
 
 #right-eye{
-    background-color: #fff;
-
     height: 150px;
     width: 150px;
-    margin: 4vw;
-    margin-top: 20vw;
-    padding: 0px;
+
+    background-color: #fff;
+
+    position: absolute;
+    top: 60vh;
+    right: 5vw;
+
     border: 5px solid #79171a;
     border-radius: 90px;
-
-    position: relative;
-    float: right;
 }
 
 #left-pupil{
-    background-color: black;
-    
     height: 200px;
     width: 200px;
-    margin-top: 10vh;
-    margin-left: 15vw;
-    padding: 0px;
-    border: 5px solid #79171a;
-    border-radius: 100px;
+
+    background-color: black;
 
     position: absolute;
+    top: 14vh;
+    left: 10vw;
 
-    z-index: 1;
+    border: 5px solid #6e5a55;
+    border-radius: 100px;
+
+    /* Followed this tutorial: https://www.kirupa.com/animations/rotating_items_around_a_point.htm */
+    animation: spinInCircle 3s linear infinite;
 }
 
 #right-pupil{
-    background-color: black;
-
     height: 100px;
     width: 100px;
-    margin-left: 80vw;
-    margin-top: 20vw;
-    border: 5px solid #79171a;
+
+    background-color: black;
+
+    position: absolute;
+    top: 63vh;
+    right: 6vw;
+
+    border: 5px solid #6e5a55;
     border-radius: 90px;
+
+    animation: spinInSmallerCircle 3s linear infinite;
+}
+
+#mouth{
+    height: 300px;
+    width: 500px;
+
+    background-color: rgb(255, 130, 151);
+
+    position: absolute;
+    left: 20vw;
+    top: 30vw;
+
+    border: 15px solid pink;
+    border-radius: 80px;
+}
+
+#teeth{
+    height: 300px;
+    width: 500px;
+    
+    background-color: #fff;
+
+    position: relative;
+    border-radius: 80px;
+}
+
+#line, #line2{
+    height: 300px;
+    width: 25px;
+    
+    background-color: black;
+
+    position: relative;
+    display: inline-block;
+    left: 25%;
+}
+
+#line2{
+    left: 50%;
+}
+
+#line3{
+    height: 25px;
+    width: 500px;
+    
+    background-color: black;
+
+    position: relative;
+    display: inline-block;
+
+    bottom: 50%;
+}
+
+#nose{
+    height: 200px;
+    width: 50px;
 
     position: absolute;
 
-    z-index: 1;
+    background-color: #a4161a;
+
+    left: 35%;
+    bottom: 40vh;
+    border: 15px solid #610003;
+    border-radius: 40px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+#figure{
+    position: absolute;
+
+    background-color: #fff;
+    height: 20vh;
+}
+
+/* Followed this tutorial: https://www.kirupa.com/animations/rotating_items_around_a_point.htm */
+@keyframes spinInCircle {
+    from {
+        transform: rotate(0deg) translate(100px);
+    }
+    to {
+        transform: rotate(360deg) translate(100px);
+    }
+}
+
+@keyframes spinInSmallerCircle {
+    from {
+        transform: rotate(0deg) translate(20px);
+    }
+    to {
+        transform: rotate(360deg) translate(20px);
+    }
 }
