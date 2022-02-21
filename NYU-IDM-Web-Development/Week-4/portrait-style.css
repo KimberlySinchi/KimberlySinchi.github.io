@@ -1,12 +1,35 @@
 body{
     background-color: #a4161a;
+
+}
+
+#intro{
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    background-color: black;
+
+    text-align: center;
+    font-size: 200px;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+
+    animation: fadeOut 4s;
+    opacity: 0%;
+
+    z-index: 0;
 }
 
 #brain{
     position: absolute;
 
-    bottom: 35vh;
-    right: 5vw;
+    bottom: 300px;
+    right: 100px;
 
     transform: scale(0.3);
 
@@ -20,13 +43,11 @@ body{
 #secret{
     position: absolute;
 
-    top: 13vh;
-    right: 24vw;
+    top: 150px;
+    right: 475px;
 
     transform: scale(0.7);
 }
-
-
 
 #eyes{
     /* Allows child containers to be absolutely positioned to this parent
@@ -168,13 +189,6 @@ body{
     border-top-color: transparent;
 }
 
-#figure{
-    position: absolute;
-
-    background-color: #fff;
-    height: 20vh;
-}
-
 /* Followed this tutorial: https://www.kirupa.com/animations/rotating_items_around_a_point.htm */
 @keyframes spinInCircle {
     from {
@@ -185,11 +199,26 @@ body{
     }
 }
 
+/* Followed this tutorial: https://www.kirupa.com/animations/rotating_items_around_a_point.htm */
 @keyframes spinInSmallerCircle {
     from {
         transform: rotate(0deg) translate(20px);
     }
     to {
         transform: rotate(360deg) translate(20px);
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 100%;
+        z-index: 3;
+    }
+    25%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+        z-index: 3;
     }
 }
