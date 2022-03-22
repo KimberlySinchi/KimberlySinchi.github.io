@@ -25,14 +25,16 @@ html, body{
     overflow: hidden;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 #sky{
     /* Gradient created with: https://cssgradient.io */
     /* Gradient animation tutorial: https://www.youtube.com/watch?v=f3mwKLXpOLk https://www.youtube.com/watch?v=fBRzD6dwJfw*/
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: 80%;
+    width: 100%;
 
     background: var(--gradient);
     background-size: 100% 900%;
@@ -41,8 +43,9 @@ html, body{
 }
 
 /* Snowfall tutorial: https://www.inventiontricks.com/snow-falling-animation-using-css/ */
-#snow, #snow2{
+#snowflakes, #snowflakes2{
     min-height: 100%;
+    width: 100%;
     background: var(--snowflakes);
     background-size: 40%;
 
@@ -50,15 +53,21 @@ html, body{
     animation: fadeInSnow 5s linear forwards 6s,
                snowFall 5s linear infinite 11s;
 }
-
-#snow:before{
+#snowflakes:before{
     opacity: 70%;
     filter: blur(7px);
 }
-
-#snow:after{
+#snowflakes:after{
     opacity: 50%;
     filter: blur(2px);
+}
+
+#ground{
+    height: 20%;
+    width: 100%;
+
+    background-image: url(https://endlessframe.files.wordpress.com/2012/10/sparkling-snow-texture.jpg);
+    background-size: cover;
 }
 
 @keyframes fadeInSnow {
