@@ -5,26 +5,79 @@
         #014f86,
         #012a4a
     );
+    --snowflakes: radial-gradient(circle 4px at 2% 2%, #fff, transparent),
+        radial-gradient(circle 6px at 10% 8%, #fff, transparent),
+        radial-gradient(circle 3px at 25% 15%, #fff, transparent),
+        radial-gradient(circle 4px at 15% 25%, #fff, transparent),
+        radial-gradient(circle 6px at 40% 5%, #fff, transparent),
+        radial-gradient(circle 3px at 55% 20%, #fff, transparent),
+        radial-gradient(circle 4px at 13% 48%, #fff, transparent),
+        radial-gradient(circle 6px at 48% 60%, #fff, transparent),
+        radial-gradient(circle 3px at 70% 36%, #fff, transparent),
+        radial-gradient(circle 4px at 40% 80%, #fff, transparent),
+        radial-gradient(circle 6px at 38% 40%, #fff, transparent),
+        radial-gradient(circle 3px at 8% 90%, #fff, transparent);
 }
 
 html, body{
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-body{
+#sky{
     /* Gradient created with: https://cssgradient.io */
     /* Gradient animation tutorial: https://www.youtube.com/watch?v=f3mwKLXpOLk https://www.youtube.com/watch?v=fBRzD6dwJfw*/
-    background-image: var(--gradient);
-    background-size: 100% 800%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: var(--gradient);
+    background-size: 100% 900%;
+    animation: turningDusk 8s ease-in-out;
     background-position: top;
-    animation: turningDusk 10s ease-in-out;
+}
+
+/* Snowfall tutorial: https://www.inventiontricks.com/snow-falling-animation-using-css/ */
+#snow, #snow2{
+    min-height: 100%;
+    background: var(--snowflakes);
+    background-size: 40%;
+
+    opacity: 0%;
+    animation: fadeInSnow 5s linear forwards 6s,
+               snowFall 5s linear infinite 11s;
+}
+
+#snow:before{
+    opacity: 70%;
+    filter: blur(7px);
+}
+
+#snow:after{
+    opacity: 50%;
+    filter: blur(2px);
+}
+
+@keyframes fadeInSnow {
+    0% { 
+        opacity: 0%; 
+        transform: translate(0, -100%);
+    }
+    100% { 
+        opacity: 100%;
+        transform: translate(0, 0);
+    }
+  }
+
+@keyframes snowFall {
+    0%{ transform: translate(0, -100%); }
+    100%{ transform: translate(0, 0); }
 }
 
 @keyframes turningDusk {
-    0%{
-        background-position: bottom;
-    }
-    100%{
-        background-position: top;
-    }
+    0%{ background-position: bottom; }
+    100%{ background-position: top; }
 }
