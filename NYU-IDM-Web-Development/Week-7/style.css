@@ -25,23 +25,45 @@ html, body{
     overflow: hidden;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
+h1{
+    font-family: 'Concert One', cursive;
+    font-size: 50px;
+    color: #fff;
+    /* Text shadow tool: https://html-css-js.com/css/generator/text-shadow/ */
+    text-shadow: 1px 0px 1px #252525, 0px 1px 1px #0e0e0e, 2px 1px 1px #252525, 1px 2px 1px #0e0e0e, 3px 2px 1px #252525, 2px 3px 1px #0e0e0e, 4px 3px 1px #252525, 3px 4px 1px #0e0e0e, 5px 4px 1px #252525, 4px 5px 1px #0e0e0e, 6px 5px 1px #252525, 5px 6px 1px #0e0e0e, 7px 6px 1px #252525;
+}
+img{
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+
+    /* How does this work for making an abs pos elem bottom center? https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-#sky{
-    /* Gradient created with: https://cssgradient.io */
-    /* Gradient animation tutorial: https://www.youtube.com/watch?v=f3mwKLXpOLk https://www.youtube.com/watch?v=fBRzD6dwJfw*/
-    height: 80%;
+.img_container{
+    height: 100%;
+    width: 30%;
+    position: relative;
+}
+
+#snowstorm{
+    position: absolute;
+    min-height: 80%;
     width: 100%;
 
-    background: var(--gradient);
-    background-size: 100% 900%;
-    animation: turningDusk 8s ease-in-out;
-    background-position: top;
+    /* Hmm, why do we need the top, bottom, left, right part?
+    When I don't have it then the element's children disappear */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
 }
-
 /* Snowfall tutorial: https://www.inventiontricks.com/snow-falling-animation-using-css/ */
 #snowflakes, #snowflakes2{
     min-height: 100%;
@@ -62,12 +84,94 @@ body{
     filter: blur(2px);
 }
 
+#scene{
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#sky{
+    /* Gradient created with: https://cssgradient.io */
+    /* Gradient animation tutorial: https://www.youtube.com/watch?v=f3mwKLXpOLk https://www.youtube.com/watch?v=fBRzD6dwJfw*/
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch center;
+    justify-content: stretch;
+    overflow: hidden;
+
+    background: var(--gradient);
+    background-size: 100% 900%;
+    animation: turningDusk 8s ease-in-out;
+    background-position: top;
+}
+
+#sky h1{
+    align-self: flex-start;
+    margin-left: 2%;
+    opacity: 0%;
+    animation: fadeIn 3s ease-in-out forwards 8s;
+}
+
+#home{
+    display: flex;
+    /* Fills up the remaining space in the parent container */
+    flex: 1;
+    justify-content: space-around;
+    position: relative;
+}
+
+#manny{
+    max-height: 20%;
+    max-width: 20%;
+    position: absolute;
+
+    /* How does this work for making an abs pos elem bottom center? https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element */
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    animation: pace 5s ease-in-out infinite alternate;
+}
+
+#light{
+    position: absolute;
+    /* Center absolute positoning */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 10%;
+    min-width: 10%;
+    background-color: yellow;
+}
+
 #ground{
     height: 20%;
     width: 100%;
 
     background-image: url(https://endlessframe.files.wordpress.com/2012/10/sparkling-snow-texture.jpg);
     background-size: cover;
+
+    position: relative;
+}
+
+#ice{
+    max-height: 50%;
+    max-width: 80%;
+    position: absolute;
+
+    margin-left: 10%;
+    left: 0;
+    top: 0;
 }
 
 @keyframes fadeInSnow {
@@ -89,4 +193,35 @@ body{
 @keyframes turningDusk {
     0%{ background-position: bottom; }
     100%{ background-position: top; }
+}
+
+/* I think it's possible to do this w transition */
+@keyframes fadeIn{
+    0%{ opacity: 0%; }
+    100%{ opacity: 100%; }
+}
+
+@keyframes walkToHouse {
+    90%{ opacity: 100% }
+    100%{
+        transform: translateX(100%);
+        opacity: 0%;
+    }
+}
+
+@keyframes pace{
+    0%{ transform: scaleX(-1); }
+    /* 15%{ transform: scaleX(-1); } */
+    20%{ 
+        transform: translateX(80%); 
+    }
+    /* 50%{ transform: scaleX(-1); }
+    55%{ transform: scaleX(1); } */
+    60%{ 
+        transform: translateX(-50%); 
+    }
+    90%{ transform: scaleX(-1); }
+    100%{ 
+        transform: scaleX(1) translateX(-70%); 
+    }
 }
