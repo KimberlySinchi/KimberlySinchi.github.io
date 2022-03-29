@@ -1,0 +1,24 @@
+:root{
+    --button_gradient: radial-gradient(circle, 
+        #4f000b,
+        #ce4257,
+        #e01e37);
+}
+
+body {
+    background-color: #fff1e6;
+    overflow: hidden;
+}
+
+#button{
+    /* TODO: Adjust height and width so that it is always a uniform circle */
+    min-height: 5%;
+    max-width: 5%;
+
+    background: var(--button_gradient);
+    opacity: 0;
+}
+
+#button:hover {
+    opacity: 1;
+}
