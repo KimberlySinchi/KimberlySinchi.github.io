@@ -8,7 +8,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #fff1e6;
+    background-color: black;
     overflow: hidden;
 }
 
@@ -16,8 +16,10 @@ body {
 #button{
     /* TODO: Adjust height and width so that it is always a uniform circle */
     min-width: 5%;
-
-    background: var(--button_gradient);
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-image: var(--button_gradient);
     opacity: 0;
 }
 
