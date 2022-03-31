@@ -12,10 +12,35 @@ body {
     overflow: hidden;
 }
 
+h1{
+    font-family: 'Boogaloo', cursive;
+    font-size: 8vh;
+}
+
+#intro{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: bisque;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#enter{
+    font-family: 'Boogaloo', cursive;
+    width: 25vw;
+    height: 10vh;
+    font-size: 4vh;
+}
+
 /* Maintaining div aspect ratio (responsive): https://stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css */
+/* Not implemented but good ref for the future */
 #button{
     /* TODO: Adjust height and width so that it is always a uniform circle */
-    min-width: 5%;
+    position: absolute;
     width: 100px;
     height: 100px;
     border-radius: 100%;
@@ -29,10 +54,4 @@ body {
 
 #button:after{
     padding-bottom: 100%;
-}
-
-#user_pic{
-    position: absolute;
-    min-height: 100%;
-    min-width: 100%;
 }
