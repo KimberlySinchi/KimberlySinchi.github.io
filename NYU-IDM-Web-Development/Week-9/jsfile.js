@@ -77,8 +77,8 @@ function calcDistance() {
 
 // Function to randomize button location
 function randomizeButton() {
-    let vw = document.documentElement.clientWidth;
-    let vh = document.documentElement.clientHeight;
+    let vw = window.innerWidth;
+    let vh = window.innerHeight;
     let x = Math.floor((Math.random() * (vw - radius*4))) + "px";
     let y = Math.floor((Math.random() * (vh - radius*4))) + "px";
 
