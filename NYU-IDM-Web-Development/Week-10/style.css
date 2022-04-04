@@ -3,6 +3,11 @@
         black,
         transparent 30%
     );
+
+    --fadeOutPurple: linear-gradient(
+        #73648a,
+        transparent 30%
+    );
 }
 
 html, body{
@@ -29,13 +34,16 @@ p{
     transition: 1s;
 }
 
-h1:hover{
+h1:hover, p:hover{
     color: pink;
+    cursor: pointer;
+}
+
+h1:hover{
     font-size: 6vh;
 }
 
 p:hover{
-    color: pink;
     font-size: 10vh;
 }
 

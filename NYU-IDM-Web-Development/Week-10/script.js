@@ -1,7 +1,9 @@
+var theWrapper = document.getElementById("wrapper");
 var theTitle = document.getElementById("title");
 var theEarsText = document.getElementById("ears_text");
 var theEyesText = document.getElementById("eyes_text");
 var theSenseImg = document.getElementsByClassName("sense");
+var theInteractiveWrapper = document.getElementById("interactive_wrapper");
 var theUserSpace = document.getElementById("user_space");
 
 var numEarsTextClicks = 0;
@@ -13,8 +15,11 @@ theEarsText.onclick = function changeContentEars() {
     theSenseImg[0].src = "https://images.squarespace-cdn.com/content/v1/5005fc2ee4b09ef22529406a/1446430425877-Z8CI11LA4RQOAHP1EA3G/ear1.gif?format=500w";
     theSenseImg[1].src = "https://images.squarespace-cdn.com/content/v1/5005fc2ee4b09ef22529406a/1446430425877-Z8CI11LA4RQOAHP1EA3G/ear1.gif?format=500w";
 
-    theTitle.textContent = "a medium through the ears"
+    theTitle.textContent = "a medium through the ears";
 
+    // theInteractiveWrapper.style.filter = "drop-shadow(16px 16px 20px red) invert(75%);";
+
+    theInteractiveWrapper.style.backgroundImage = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2ejJ0KXLGz80aQezNGMNiyf47Mu5DmKavg&usqp=CAU)";
     // theEarsText.style.color = "pink";
     // theEarsText.style.fontSize = "10vh";
 
@@ -27,13 +32,26 @@ theEyesText.onclick = function changeContentEyes() {
     theSenseImg[0].src = "https://i.pinimg.com/originals/51/ca/04/51ca04097929e5d9ea150b107b745c60.gif";
     theSenseImg[1].src = "https://i.pinimg.com/originals/51/ca/04/51ca04097929e5d9ea150b107b745c60.gif";
 
-    theTitle.textContent = "a medium through the eyes"
+    theTitle.textContent = "a medium through the eyes";
+
+    theInteractiveWrapper.style.backgroundImage = "url(https://media0.giphy.com/media/l2uHjqlI8agQupxmIC/200w.gif?cid=82a1493bdv0ursbv54mtp7v04oi5g3av9h1lk4ql6xolmaw7&rid=200w.gif&ct=g)";
+
+    // 73648a
 
     // theEyesText.style.color = "pink";
     // theEyesText.style.fontSize = "10vh";
 
     // theEarsText.style.color = "white";
     // theEarsText.style.fontSize = "4vh";
+}
+
+// Title (reset) selected
+theTitle.onclick = function changeContentEyes() {
+    theSenseImg[0].src = "https://data.whicdn.com/images/140051440/original.gif";
+    theSenseImg[1].src = "https://data.whicdn.com/images/140051440/original.gif";
+
+    theTitle.textContent = "explore your senses";
+    theInteractiveWrapper.style.backgroundImage = "url(https://media1.giphy.com/media/1YiJ9qOYgWPCQKhRjj/giphy.gif)";
 }
 
 // Tracking clicks
