@@ -8,6 +8,11 @@
         #73648a,
         transparent 30%
     );
+
+    --fadeOutWine: linear-gradient(
+        black,
+        #843b62 30%
+    );
 }
 
 html, body{
@@ -62,6 +67,8 @@ p:hover{
     display: flex;
     justify-content: center;
     height: 20%;
+
+    background-color: black;
 }
 
 .sense_wrapper{
