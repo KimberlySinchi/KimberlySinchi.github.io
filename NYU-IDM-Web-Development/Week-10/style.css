@@ -94,7 +94,10 @@ p:hover{
 }
 
 #interactive_wallpaper{
-    
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 #user_space{
@@ -106,17 +109,25 @@ p:hover{
     background: var(--fadeOutBlack);
 }
 
-
-
-/* #face{
-    position: relative;
-    overflow: hidden;
+#sc_player{
+    position: absolute;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 50%;
-    background-repeat: no-repeat;
-    background-color: #00171f;
-    border-radius: 30px;
-} */
+    align-items: flex-end;
+    opacity: 100%;
+    z-index: -1;
+}
+
+@keyframes fadeInBlack{
+    0%{
+        background: linear-gradient(  
+        black,
+        transparent 30%
+        );
+    }
+    100%{
+        background: linear-gradient(  
+        black 100%,
+        transparent 0%
+        );
+    }
+}
