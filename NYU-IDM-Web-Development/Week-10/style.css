@@ -33,6 +33,11 @@ h1:hover, p:hover{
     cursor: pointer;
 }
 
+h1:hover{
+    color: pink;
+    font-size: 6vh;
+}
+
 #wrapper{
     height: 100%;
     width: 100%;
@@ -96,4 +101,19 @@ h1:hover, p:hover{
     align-items: flex-end;
     opacity: 100%;
     z-index: -1;
+}
+
+@keyframes fadeInBlack{
+    0%{
+        background: linear-gradient(  
+        black,
+        transparent 30%
+        );
+    }
+    100%{
+        background: linear-gradient(  
+        black 100%,
+        transparent 0%
+        );
+    }
 }
