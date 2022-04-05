@@ -87,9 +87,14 @@ p:hover{
 }
 
 #interactive_wrapper{
+    position: relative;
     height: 80%;
     width: 100%;
     background-image: url("https://media1.giphy.com/media/1YiJ9qOYgWPCQKhRjj/giphy.gif");
+}
+
+#interactive_wallpaper{
+    
 }
 
 #user_space{

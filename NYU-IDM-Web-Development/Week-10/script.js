@@ -1,3 +1,4 @@
+var theBody = document.querySelector("body");
 var theWrapper = document.getElementById("wrapper");
 var theTitle = document.getElementById("title");
 var theEarsText = document.getElementById("ears_text");
@@ -6,9 +7,22 @@ var theSenseImg = document.getElementsByClassName("sense");
 var theInteractiveWrapper = document.getElementById("interactive_wrapper");
 var theUserSpace = document.getElementById("user_space");
 
+var mouseOverEarsText = false;
+var mouseOverEyesText = false;
 var numEarsConsecClicks = 0;
 var numEyesConsecClicks = 0;
-var lastClick = 0; // 1 for ear text, 2 for eye text
+var currScene = 0; // 0: title, 1: ear, 2: eye
+var lastClick = 0; // 0: title, 1: ear, 2: eye
+
+theEarsText.onmouseover = function(){ mouseOverEarsText = true; }
+theEarsText.onmouseout = function(){ mouseOverEarsText = false; }
+theEyesText.onmouseover = function(){ mouseOverEyesText = true; }
+theEyesText.onmouseout = function(){ mouseOverEyesText = false; }
+
+theEarsText.addEventListener("mouseover", hover);
+theEarsText.addEventListener("mouseout", hover);
+theEyesText.addEventListener("mouseover", hover);
+theEyesText.addEventListener("mouseout", hover);
 
 // Ears text selected
 theEarsText.onclick = function changeContentEars() {
@@ -17,15 +31,14 @@ theEarsText.onclick = function changeContentEars() {
 
     theTitle.textContent = "a medium through the ears";
 
-    // theInteractiveWrapper.style.filter = "drop-shadow(16px 16px 20px red) invert(75%);";
-
     theInteractiveWrapper.style.backgroundImage = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2ejJ0KXLGz80aQezNGMNiyf47Mu5DmKavg&usqp=CAU)";
-    theWrapper.style.backgroundColor = "#843b62";
-    // theEarsText.style.color = "pink";
-    // theEarsText.style.fontSize = "10vh";
 
-    // theEyesText.style.color = "white";
-    // theEyesText.style.fontSize = "4vh";
+    theBody.style.cursor = "url(https://ed27f9fac55a6c9b4009.b-cdn.net/wp-content/uploads/2021/11/WOMG-Music-icon-Export-1c-3.gif), auto";
+
+    earHoverState();
+    eyesUnhoverState();
+
+    currScene = 1;
 }
 
 // Eyes text selected
@@ -37,13 +50,10 @@ theEyesText.onclick = function changeContentEyes() {
 
     theInteractiveWrapper.style.backgroundImage = "url(https://media0.giphy.com/media/l2uHjqlI8agQupxmIC/200w.gif?cid=82a1493bdv0ursbv54mtp7v04oi5g3av9h1lk4ql6xolmaw7&rid=200w.gif&ct=g)";
 
-    // 73648a
+    earUnhoverState();
+    eyesHoverState();
 
-    // theEyesText.style.color = "pink";
-    // theEyesText.style.fontSize = "10vh";
-
-    // theEarsText.style.color = "white";
-    // theEarsText.style.fontSize = "4vh";
+    currScene = 2;
 }
 
 // Title (reset) selected
@@ -57,14 +67,14 @@ theEarsText.addEventListener('click', function() {
     if(lastClick == 1){
         numEarsConsecClicks++;
 
-        if(numEarsConsecClicks%2 == 0)
+        if(numEarsConsecClicks%2 == 0){
             titleContent();
+        }
     }
     else
         numEarsConsecClicks = 1;
 
     lastClick = 1;
-    console.log("Ear Clicks " + numEarsConsecClicks);
 });
 
 theEyesText.addEventListener('click', function() {
@@ -79,7 +89,6 @@ theEyesText.addEventListener('click', function() {
         numEyesConsecClicks = 1;
 
     lastClick = 2;
-    console.log("Eye Clicks " + numEyesConsecClicks);
 });
 
 // Title content gif
@@ -90,17 +99,46 @@ function titleContent(){
     theTitle.textContent = "explore your senses";
     theInteractiveWrapper.style.backgroundImage = "url(https://media1.giphy.com/media/1YiJ9qOYgWPCQKhRjj/giphy.gif)";
 
-    // theEarsText.style.color = "white";
-    // theEarsText.style.fontSize = "4vh";
+    earUnhoverState();
+    eyesUnhoverState();
 
-    // theEyesText.style.color = "white";
-    // theEyesText.style.fontSize = "4vh";
+    currScene = 0;
 }
 
-// Fix this cause this gets overridden by the onclick listener
-// if(numEarsTextClicks != 0 && numEyesTextClicks != 0){
-//     if(numEarsTextClicks%2 == 0 || numEyesTextClicks%2 == 0){
-//         console.log("hi");
-//         resetContent();
-//     }
-// }
+// Hover states
+function earHoverState(){
+    theEarsText.style.color = "pink";
+    theEarsText.style.fontSize = "10vh";
+}
+
+function earUnhoverState(){
+    theEarsText.style.color = "white";
+    theEarsText.style.fontSize = "4vh";
+}
+
+function eyesHoverState(){
+    theEyesText.style.color = "pink";
+    theEyesText.style.fontSize = "10vh";
+}
+
+function eyesUnhoverState(){
+    theEyesText.style.color = "white";
+    theEyesText.style.fontSize = "4vh";
+}
+
+function hover(){
+    // Enable hover in specific scenarios
+    if(currScene == 0 || currScene == 2){
+        if(mouseOverEarsText)
+            earHoverState();
+        else
+            earUnhoverState();
+    }
+    if(currScene == 0 || currScene == 1){
+        if(mouseOverEyesText)
+            eyesHoverState();
+        else
+            eyesUnhoverState();
+    }
+    console.log(currScene);
+}
