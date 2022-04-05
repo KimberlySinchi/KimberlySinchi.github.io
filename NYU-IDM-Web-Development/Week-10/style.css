@@ -3,16 +3,6 @@
         black,
         transparent 30%
     );
-
-    --fadeOutPurple: linear-gradient(
-        #73648a,
-        transparent 30%
-    );
-
-    --fadeOutWine: linear-gradient(
-        black,
-        #843b62 30%
-    );
 }
 
 html, body{
@@ -40,16 +30,7 @@ p{
 }
 
 h1:hover, p:hover{
-    color: pink;
     cursor: pointer;
-}
-
-h1:hover{
-    font-size: 6vh;
-}
-
-p:hover{
-    font-size: 10vh;
 }
 
 #wrapper{
@@ -115,19 +96,4 @@ p:hover{
     align-items: flex-end;
     opacity: 100%;
     z-index: -1;
-}
-
-@keyframes fadeInBlack{
-    0%{
-        background: linear-gradient(  
-        black,
-        transparent 30%
-        );
-    }
-    100%{
-        background: linear-gradient(  
-        black 100%,
-        transparent 0%
-        );
-    }
 }
