@@ -1,0 +1,46 @@
+:root{
+    --gradient: linear-gradient(
+        #b5c99a,
+        #cfe1b9,
+        #e9f5db
+    );
+}
+
+/* *{ Star means everything
+    margin: 0;
+    padding: 0;
+} */
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Neucha', cursive;
+    font-size: 6vh;
+    padding: 20px;
+}
+
+h3{
+    font-family: 'Viga', sans-serif;
+    font-size: 3vh;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+ul{
+    font-family: 'Viga', sans-serif;
+}
+
+#wrapper{
+    height: 100%;
+    width: 100%;
+    background: var(--gradient);
+}
+
+.section_wrapper{
+    background: #f0ead2;
+    border-radius: 40px;
+}
