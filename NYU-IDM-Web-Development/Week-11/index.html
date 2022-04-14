@@ -7,28 +7,69 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Viga&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&family=Viga&family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="wrapper">
-            <h1>DANGER NOODLE</h1>
+            <div id="title_wrapper">
+                <h1>🐍 DANGER NOODLE 🐍</h1>
+            </div>
             <div class="section_wrapper">
-                <h3>SITE CONCEPT</h3>
+                <h3>SITE CONCEPT 💡</h3>
                 <ul>
-                    <li>Video Game</li>
+                    <li>Snake 🐍 inspired video game with our own twist</li>
+                    <li>Mines populate the grid, avoid them while eating as many apples as you can!</li>
+                    <li>User interaction through: keyboard and play arena customization</li>
                 </ul>
             </div>
             <div class="section_wrapper">
-                <h3>WIREFRAME</h3>
+                <h3>WIREFRAME 🚿</h3>
+                <div class="img_container">
+                    <img src="assets/wireframe.png">
+                </div>
             </div>
             <div class="section_wrapper">
-                <h3>BASIC SITE MAP</h3>
+                <h3>BASIC SITE MAP 🔨</h3>
+                <div class="img_container">
+                    <img src="assets/site_map.jpg">
+                </div>
             </div>
             <div class="section_wrapper">
-                <h3>DESIGN STRATEGY</h3>
+                <h3>DESIGN STRATEGY 💾</h3>
+                <ul>
+                    <li>Zoom meetings</li>
+                    <li>Division of labor per decoration/functionality</li>
+                    <li>Check-ins</li>
+                </ul>
             </div>
             <div class="section_wrapper">
-                <h3>JQUERY FUNCTIONS</h3>
+                <h3>JQUERY FUNCTIONS 💻</h3>
+                <p>Creating an interactive grid</p>
+                <p id="psuedo_code"> 
+                    const create_grid = () => {<br>
+                        &emsp; ADD N CHILDREN TO THE GRIDS<br>
+                        &emsp; $(grid).append(...); N TIMES<br>
+                    }
+                </p>
+                <p>Updating a grid to reflect current game state</p>
+                <p id="psuedo_code"> 
+                    const update_tiles = () => {<br>
+                        &emsp; GET LOCATION OF THE HEAD OF THE SNAKE<br>
+                        &emsp; GET LOCATION OF THE TAIL OF THE SNAKE<br>
+                        &emsp; GET LOCATION OF BOMB AND APPLE<br>
+                        &emsp; LOOP OVER THE GRIDS CHILDREN<br>
+                        &emsp; USE "$(grid:nth-child(N)).css();" TO CHANGE THE TILE<br>
+                        &emsp; or "$(grid:nth-child(N)).attr("id") = ..."<br>
+                    }
+                </p>
+                <p>User input (clicks and keypresses), grid customization</p>
+                <p id="psuedo_code"> 
+                    $(button).click(function() {<br>
+                        &emsp; DETERMINE WHICH BUTTON WAS CLICKED<br>
+                        &emsp; CHOOSE THE SIZE N<br>
+                        &emsp; CREATE A GRID OF SIZE N<br>
+                    })
+                </p>
             </div>
         </div>
     </body>
