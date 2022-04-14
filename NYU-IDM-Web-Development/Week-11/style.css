@@ -57,7 +57,9 @@ img{
     flex-direction: column;
 }
 
-/* #title_wrapper{ } Wrapper present in case animation should change*/
+#title_wrapper{ 
+    overflow: hidden;
+}
 
 #psuedo_code{
     font-family: 'Plus Jakarta Sans', sans-serif;
