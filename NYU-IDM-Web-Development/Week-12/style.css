@@ -1,0 +1,64 @@
+:root{
+    --gradient: radial-gradient(
+        circle,
+        #74c69d,
+        #52b788,
+        #40916c
+    );
+}
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, p{
+    font-family: 'Viga', sans-serif;
+}
+
+#wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-image: var(--gradient);
+}
+
+#title_wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+#game_wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: none;
+}
+
+#game_over_notif{
+    display: none;
+}
+
+.tile{
+    background-color: black;
+    border: solid 2px purple;
+    width: 40px;
+    height: 40px;
+}
+
+.row {
+    display: flex;
+    margin:0;
+    padding:0;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
