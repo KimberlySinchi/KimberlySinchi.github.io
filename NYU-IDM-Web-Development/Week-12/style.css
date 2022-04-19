@@ -5,6 +5,17 @@
         #52b788,
         #40916c
     );
+    --over-gradient: linear-gradient(
+        200deg,
+        #ef233c,
+        #a4133c,
+        #da1e37
+        ), linear-gradient(
+        127deg,
+        #8d0801,
+        #ff0a54,
+        #bf0603
+    );
 }
 
 html, body{
@@ -20,32 +31,45 @@ h1, p{
     height: 100%;
     width: 100%;
     position: relative;
+    justify-content: center;
+    align-items: center;
     background-image: var(--gradient);
 }
 
 #title_wrapper{
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#char{
+    font-size: 20vh;
+    font-family: 'Gloria Hallelujah', cursive;
+    animation: upDown 3s infinite alternate ease-in-out;
 }
 
 #game_wrapper{
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     display: none;
 }
 
-#game_over_notif{
-    display: none;
+#tile{
+    border: solid 1px rgb(255, 255, 255, 0.2);
+    width: 20px;
+    height: 20px;
 }
 
-.tile{
-    background-color: black;
-    border: solid 2px purple;
-    width: 40px;
-    height: 40px;
+#grid{
+    background: url(https://opengameart.org/sites/default/files/styles/medium/public/forum-attachments/grass20.png);
 }
 
 .row {
@@ -56,9 +80,33 @@ h1, p{
     align-items: center;
 }
 
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.empty {
+    background: url(https://opengameart.org/sites/default/files/styles/medium/public/forum-attachments/grass20.png);
+}
+
+.snake {
+    background-color: green;
+}
+
+.apple {
+    background: url("data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>");
+}
+
+.mine {
+    background: url("data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💣</text></svg>");
+}
+
+.game-over {
+    background: var(--over-gradient);
+}
+
+#char:hover{
+    color: #e5f993;
+}
+
+@keyframes upDown{
+    0%{ transform: translateY(0vw);}
+    30%{ transform: translateY(-1vw); }
+    60%{ transform: translateY(1vw); }
+    100%{ transform: translateY(0vw);}
 }
