@@ -8,6 +8,7 @@ const KEYA = 65;
 const KEYW = 87;
 const KEYD = 68;
 const KEYS = 83;
+const KEYENTER = 13;
 
 // Game vars
 var gridSize = 30;
@@ -77,6 +78,19 @@ const initializeMine = () => {
     for(let i = 0; i < mineCount; i++) {
         randomizeMine();
     }
+}
+
+const resetBoard = () => {
+    for(let r = 0; r < gridSize; r++) {
+        for(let c = 0; c < gridSize; c++) {
+            getTileAt(r, c).attr("class", "empty");
+        }
+    }
+
+    snakeRows = [];
+    snakeCols = [];
+    mineRows = [];
+    mineCols = [];
 }
 
 const gameLoop = () => {
@@ -204,16 +218,21 @@ $(document).keydown(function(event) {
     } else if((event.keyCode == KEYRIGHT || event.keyCode == KEYD) && velC != -1) {
         updateVelR = 0;
         updateVelC = 1;
+    } else if(event.keyCode == KEYENTER){
+        resetBoard();
+        initializeSnake();
+        initializeApple();
+        initializeMine();
+        gameOver = false;
     }
 });
 
 $($titleScreen).click(function() {
     $titleScreen.hide();
     $gameScreen.css({"display": "flex"});
-    console.log("IM ALIVE");
-        createGrid(gridSize);
-        initializeSnake();
-        initializeApple();
-        initializeMine();
-        setInterval(gameLoop, refreshRate);
+    createGrid(gridSize);
+    initializeSnake();
+    initializeApple();
+    initializeMine();
+    setInterval(gameLoop, refreshRate);
 });

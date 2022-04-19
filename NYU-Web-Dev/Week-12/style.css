@@ -9,8 +9,8 @@
         200deg,
         #ef233c,
         #a4133c,
-        #da1e37
-        ), linear-gradient(
+        #da1e37), 
+        linear-gradient(
         127deg,
         #8d0801,
         #ff0a54,
@@ -24,7 +24,8 @@ html, body{
 }
 
 h1, p{
-    font-family: 'Viga', sans-serif;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3vh;
 }
 
 #wrapper{
@@ -41,8 +42,14 @@ h1, p{
     width: 100%;
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#title_container{
+    display: flex;
+    justify-content: center;
 }
 
 #char{
