@@ -1,11 +1,34 @@
 *{
     font-family: 'Press Start 2P', cursive;
+    color: white;
 }
 
 html, body{
     margin: 0px;
     padding: 0px;
 }
+
+#wrapper{
+    height: 100%;
+    width: 100%;
+    background: url("https://wallpaperaccess.com/full/2217435.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#word{
+    font-size: 10vh;
+}
+
+/* .typedChar{
+
+}
+
+.wordSpelt{
+
+} */
 
 /* h1{
     
