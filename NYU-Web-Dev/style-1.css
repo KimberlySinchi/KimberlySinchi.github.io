@@ -3,6 +3,9 @@
  */
 
 /* HTML Architecture */
+main{
+    overflow: hidden;
+}
 body{
     background-color: #e0cefd;
     margin: 0px;

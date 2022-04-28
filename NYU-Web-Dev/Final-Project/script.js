@@ -8,11 +8,15 @@ const KEY_A = 65;
 const KEY_Z = 90;
 const KEY_BACKSPACE = 8;
 const KEY_ENTER = 13;
+const KEY_TILDA = 192;
 
 // DOM elements
 var $container = $(".wrapper");
 var $asteroid = $("<div/>", {
     id: "asteroid"
+});
+var $userWrapper = $("<div/>", {
+    id: "user_wrapper"
 });
 var $userStr = $("<div/>", {
     id: "user_str"
@@ -30,6 +34,10 @@ var wordLen = 5;
 const activeWords = [];
 const currAsteroids = [];
 
+// Asteroid fall vars
+var interval = 500;
+var velY = 20;
+
 // GAME BUILDING FUNCTIONS
 const initTitle = () => {
     console.log("BONK");
@@ -40,7 +48,8 @@ const initTitle = () => {
 const initGame = () => {
     $title.hide();
     $container.attr("id", "game_wrapper");
-    $container.append($userStr);
+    $container.append($userWrapper);
+    $userWrapper.append($userStr);
     createAsteroid(8);
 }
 
@@ -63,7 +72,6 @@ async function createAsteroid(num) {
     mruWord = activeWords[activeWords.length-1];
     $container.append(currAsteroids[currAsteroids.length-1].text(mruWord));
     $($newAsteroid).css({top: 0, left: (startCoords($newAsteroid))});
-    console.log("WINDOW_W", WINDOW_W, "STARTING:", startCoords($newAsteroid), "DIV SIZE:", $newAsteroid.width());
 }
 
 // DISTANCE FORMULA BING BONG TO CHECK WORDS OVERLAPPING
@@ -111,10 +119,47 @@ const checkWordsSpelled = () => {
     }
 }
 
-// Determine if two asteroids would overlap
-const wouldOverlapInDeployment = ($asteroid) => {
-
+// Determine if asteroid hits home
+const doesAsteroidHit = ($asteroid) => {
+    if($asteroid.position().top + $asteroid.height() > $userWrapper.position().top)
+        return true; 
+    return false;
 }
+
+// Determine if gameover
+const isGameOver = () => {
+    for(var i = 0; i < currAsteroids.length; i++) {
+        console.log("currAstpos", currAsteroids[i].position().top, "waka", currAsteroids[i].position().top + currAsteroids[i].height());
+        if(doesAsteroidHit(currAsteroids[i]))
+            return true; 
+    }
+    return false;
+}
+
+// ADD IN PAUSE FEATURE
+
+const fall = ($asteroid) => {
+    var currY = $asteroid.position().top;
+    $asteroid.css({top: currY + velY});
+}
+
+const fallLoop = () => {
+    for(var i = 0; i < currAsteroids.length; i++) {
+        fall(currAsteroids[i]);
+    }
+    if(isGameOver()) {
+        $userWrapper.css("background", "red");
+        for(var i = 0; i < currAsteroids.length; i++) {
+            if(doesAsteroidHit(currAsteroids[i])){
+                destroyAsteroid(i);
+                console.log(activeWords, currAsteroids);
+                createAsteroid(10);
+            }
+        }
+    }
+}
+
+// CHANGE GRADIENT OF HIT ZONE AS WORDS APPROACH
 
 // ONLY MAKE Y DIRECTION OF MOVEMENT
 // Have astronaunts walking on the bottom or something or conneccted to a ship
@@ -134,7 +179,7 @@ $(document).keydown(function(event) {
             updateInput(inputStr + event.key);
         else if(event.keyCode == KEY_BACKSPACE && inputStr != "")
             updateInput(inputStr.substring(0, inputStr.length-1));
-        else if(event.keyCode == KEY_BACKSPACE)
+        else if(event.keyCode == KEY_TILDA)
             createAsteroid(10);
         checkWordsSpelled();
     }
@@ -145,4 +190,10 @@ $($container).click(function() {
         initGame();
 });
 
-initTitle();
+// MAIN
+const main = () =>{
+    initTitle();
+    setInterval(fallLoop, interval);
+}
+
+main();

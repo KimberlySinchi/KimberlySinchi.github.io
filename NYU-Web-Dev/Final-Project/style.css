@@ -15,6 +15,7 @@ html, body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 #title_wrapper{
@@ -23,7 +24,16 @@ html, body{
 
 #game_wrapper{
     justify-content: flex-end;
-    /* overflow: hidden; */
+    overflow: hidden;
+}
+
+#user_wrapper{
+    height: 10%;
+    width: 100%;
+    background-color: rgba(255,237,101, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #title{
