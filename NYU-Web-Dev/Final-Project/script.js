@@ -9,6 +9,7 @@ const KEY_Z = 90;
 const KEY_BACKSPACE = 8;
 const KEY_ENTER = 13;
 const KEY_TILDA = 192;
+const KEY_PERIOD = 190;
 
 // DOM elements
 var $container = $(".wrapper");
@@ -21,6 +22,14 @@ var $userWrapper = $("<div/>", {
 var $userStr = $("<div/>", {
     id: "user_str"
 });
+var $score = $("<div/>", {
+    id: "score",
+    text: "Score: "
+});
+var $time = $("<div/>", {
+    id: "time",
+    text: "Time: 0"
+});
 var $title = $("<div/>", {
     id: "title",
     text: "Space Racer"
@@ -31,6 +40,7 @@ var URL = "https://random-word-api.herokuapp.com/word?length="
 var word = "";
 var inputStr = "";
 var wordLen = 5;
+var currTime = 0;
 const activeWords = [];
 const currAsteroids = [];
 
@@ -49,8 +59,16 @@ const initGame = () => {
     $title.hide();
     $container.attr("id", "game_wrapper");
     $container.append($userWrapper);
+    $userWrapper.append($score);
     $userWrapper.append($userStr);
+    $userWrapper.append($time);
+    currTime = 0;
     createAsteroid(8);
+}
+
+const updateTime = () => {
+    currTime++;
+    $time.text("Time: " + currTime);
 }
 
 // ANIMATION FUNCTIONS
@@ -181,6 +199,11 @@ $(document).keydown(function(event) {
             updateInput(inputStr.substring(0, inputStr.length-1));
         else if(event.keyCode == KEY_TILDA)
             createAsteroid(10);
+        else if(event.keyCode == KEY_PERIOD){
+            console.log("hi");
+            clearInterval(fallLoop);
+            clearInterval(updateTime);
+        }
         checkWordsSpelled();
     }
 });
@@ -194,6 +217,7 @@ $($container).click(function() {
 const main = () =>{
     initTitle();
     setInterval(fallLoop, interval);
+    setInterval(updateTime, 1000);
 }
 
 main();
