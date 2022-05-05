@@ -8,6 +8,11 @@ html, body{
     padding: 0px;
 }
 
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .wrapper{
     height: 100%;
     width: 100%;
@@ -19,7 +24,10 @@ html, body{
 }
 
 #title_wrapper{
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #game_wrapper{
@@ -41,11 +49,30 @@ html, body{
     font-size: 10vh;
 }
 
+#instruc{
+    text-align: center;
+}
+
 #asteroid{
     position: absolute;
     font-size: 15px;
+    background-image: url("https://thumbs.dreamstime.com/b/rough-meteorite-texture-beige-color-background-has-many-small-holes-its-surface-grunge-dirty-96590981.jpg");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #user_str{
+    text-align: center;
+    width: 44vh;
+    font-size: 4vh;
+}
+
+#game_over{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
     font-size: 4vh;
 }
