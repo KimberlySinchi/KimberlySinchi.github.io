@@ -1,0 +1,35 @@
+:root{
+    --intro-gradient: linear-gradient(
+        45deg,
+        /* #c55df6,
+        #c580ed,
+        #deaaff,
+        #e382f9 */
+        #b388eb,
+        #e2afff,
+        #ffc4d6,
+        #fed4e7
+    );
+}
+
+body{
+    background: var(--intro-gradient);
+}
+
+h1{
+    font-family: 'Averia Sans Libre', cursive;
+}
+
+h2{
+    font-family: 'Averia Sans Libre', cursive;
+    color: #57078e;
+    /* text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff; */
+}
+
+p{
+    font-family: 'Yusei Magic', sans-serif;
+}
